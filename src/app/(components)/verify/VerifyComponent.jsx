@@ -105,7 +105,7 @@ const handleVerify = async() => {
      <div className="flex flex-col min-h-screen">
   <div className="container mt-[80px] m-auto w-full flex-grow">
     <div className="logo text-center">
-      <Image src={'/assets/signLogo.svg'} alt="Logo" width={200} height={200} priority className='max-w-[224.34px] inline-block max-h-[67px] object-cover object-center' />
+      <Image src={'/assets/signLogo.svg'} alt="Logo" width={200} height={200} priority className='max-w-[224.34px] max-sm:max-w-full inline-block max-h-[67px] object-cover object-center' />
     </div>
     <div className="my-4 link">
       <Link href='/sign-up' className='text-[16px] leading-[24px] font-medium text-[rgba(45,45,45,1)] flex items-center gap-2'>
@@ -115,7 +115,7 @@ const handleVerify = async() => {
     <div className="my-6">
       <h3 className='text-[24px] leading-[31.34px] font-bold text-[rgba(45,45,45,1)]'>Verification Code</h3>
       <p className='text-[16px] leading-[24px] font-normal text-[rgba(141,153,157,1)]'>
-        Enter the verification code we just sent you on your email address <span className='font-semibold text-[rgba(45,45,45,1)]'>{email ? email : ''}</span>
+        Enter the verification code we just sent you on your email address <span className='font-semibold text-[rgba(45,45,45,1)] max-sm:text-[10px]'>{email ? email : ''}</span>
       </p>
     </div>
     <div className="flex my-6 gap-3 max-sm:flex-wrap justify-center">
@@ -128,17 +128,17 @@ const handleVerify = async() => {
           onChange={(e) => handleChange(e, index)}
           onKeyDown={(e) => handleKeyDown(e, index)}
           ref={(el) => (inputRefs.current[index] = el)}
-          className="w-[72px] h-[72px] text-center border text-[24px] leading-[16px] font-bold text-[rgba(45,45,45,1)] border-gray-300 rounded-lg focus:outline-none bg-[rgba(244,244,243,1)]"
+          className="w-[72px] h-[72px] max-sm:w-[50px] text-center border text-[24px] leading-[16px] font-bold text-[rgba(45,45,45,1)] border-gray-300 rounded-lg focus:outline-none bg-[rgba(244,244,243,1)]"
         />
       ))}
     </div>
     <div className="send w-full text-center my-6">
-      <button onClick={handleVerify} className='xl:w-[516px] w-full h-[64px] bg-[rgba(45,45,45,1)] text-[14px] leading-[21px] font-bold text-[rgba(248,248,247,1)] px-[20px] py-[23px]'>
+      <button onClick={handleVerify} className='xl:w-[516px] max-sm:w-1/2 w-full h-[64px] bg-[rgba(45,45,45,1)] text-[14px] leading-[21px] font-bold text-[rgba(248,248,247,1)] px-[20px] py-[23px]'>
         Send <GoArrowUpRight className='inline-block w-[12px] h-[12px]' />
       </button>
     </div>
   </div>
-  <div className="mt-auto flex justify-around items-center mb-4 text-center resend text-[16px] leading-[17px] font-normal text-[rgba(45,45,45,1)]">
+  <div className="mt-auto  flex justify-around max-sm:flex-col items-center mb-4 pb-4 text-center resend text-[16px] leading-[17px] font-normal text-[rgba(45,45,45,1)]">
   <p>If you don’t receive code <button onClick={resendBtn} className='font-medium text-[rgba(141,153,157,1)]'> Resend</button ></p>
 <p>{timeLeft > 0 && `00:${timeLeft}`}</p>
   </div>
