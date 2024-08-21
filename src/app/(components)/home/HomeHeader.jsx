@@ -1,11 +1,11 @@
 "use client"
-import NavLayout from '@/app/layout/navbar/NavLayout'
 import Link from 'next/link'
 import React from 'react'
 import { MdArrowOutward } from 'react-icons/md'
 import {  useSelector } from 'react-redux'
 import Loader from './../loader/Loader';
 import Image from 'next/image'
+import NavLayout from '@/app/layout/navbar/NavLayout'
 
 export default function HomeHeader() {
 const {error,isLoading,sliders} = useSelector(state => state.homeApi)
