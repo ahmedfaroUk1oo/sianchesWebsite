@@ -1,33 +1,41 @@
 "use client"
-import React, { useLayoutEffect } from 'react'
-import HomeHeader from './HomeHeader'
-import {  useDispatch } from 'react-redux'
+import React, { useLayoutEffect, lazy, Suspense, useState, useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 import { homeApi } from '@/app/store/HomeApiSlice'
-import WeHelpYou from './WeHelpYou'
-import Properties from './Properties'
-import SellUnit from './SellUnit'
-import RecentlyAdded from './RecentlyAdded'
-import Ambassador from './Ambassador'
-import OurPartners from './OurPartners'
 import { profileApi } from '@/app/store/showProfileSlice'
-import ContactUs from './ContactUs'
+import Loader from '../loader/Loader'
 
+const HomeHeader = lazy(() => import('./HomeHeader'));
+const WeHelpYou = lazy(() => import('./WeHelpYou'));
+const Properties = lazy(() => import('./Properties'));
+const SellUnit = lazy(() => import('./SellUnit'));
+const RecentlyAdded = lazy(() => import('./RecentlyAdded'));
+const Ambassador = lazy(() => import('./Ambassador'));
+const OurPartners = lazy(() => import('./OurPartners'));
+const ContactUs = lazy(() => import('./ContactUs'));
 
 export default function HomeLayout() {
-  const dispatch =useDispatch()
-  
+  const dispatch = useDispatch();
+  const [isMounted, setIsMounted] = useState(false);
 
-
-useLayoutEffect(() => {
-    dispatch(homeApi()).then((res)=>{
-      if(localStorage.getItem('sianchesToken')) {
-        dispatch(profileApi())
+  useLayoutEffect(() => {
+    dispatch(homeApi()).then((res) => {
+      if (localStorage.getItem('sianchesToken')) {
+        dispatch(profileApi());
       }
-    })
-},[])
+    });
+  }, [dispatch]);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) {
+    return null; // or a loading spinner
+  }
+
   return (
-    <>
-   
+    <Suspense fallback={<Loader />}>
       <HomeHeader />
       <WeHelpYou />
       <Properties />
@@ -36,7 +44,6 @@ useLayoutEffect(() => {
       <Ambassador />
       <OurPartners />
       <ContactUs />
-     
-    </>
-  )
+    </Suspense>
+  );
 }

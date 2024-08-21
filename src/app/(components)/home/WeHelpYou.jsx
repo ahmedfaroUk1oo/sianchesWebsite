@@ -22,7 +22,7 @@ console.log(we_help_you);
                 <Image
                   src={we_help_you.main.image}
                   alt={we_help_you.main.title}
-                  priority
+                  loading="lazy"
                   width={500}
                   height={500}
                   className="w-[570px] max-h-[660px] h-fit object-cover object-center inline-block"

@@ -16,7 +16,7 @@ const {error,isLoading,sliders} = useSelector(state => state.homeApi)
      {isLoading ? <Loader /> : error ? <div>{error}</div> : sliders &&  sliders?.map(slider => <section key={slider.id}
         className={` relative w-full min-h-[100vh]  bg-cover bg-center bg-no-repeat flex flex-col`}
       >
-        <Image src={slider.image} alt={slider.title} layout='fill' objectFit='cover' />
+        <Image src={slider.image} alt={slider.title} layout='fill' objectFit='cover' loading="lazy" />
          <div className='absolute inset-0 bg-black opacity-[.1]'></div>
         <NavLayout />
         <div className="container relative z-10 flex-grow flex justify-center items-center m-auto">
