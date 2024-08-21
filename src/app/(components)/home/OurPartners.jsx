@@ -56,7 +56,7 @@ pagination={{
     {partners?.map((partner,index)=><SwiperSlide key={index} className='py-6  max-w-full m-auto max-sm:[margin:auto_!important]'>
       <div className="img my-6">
         <Link href={partner.link} target='_blank'>
-        <Image src={partner.logo} alt={partner.link} width={370} height={270} className='xl:w-[370px] h-[308.55px] object-cover object-center inline-block'  />
+        <Image src={partner.logo} alt={partner.link} width={370} height={270} className='xl:w-[370px] h-[308.55px] object-cover object-center inline-block' loading='lazy' />
         </Link>
       </div>
     </SwiperSlide>)}

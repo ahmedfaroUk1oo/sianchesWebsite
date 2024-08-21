@@ -16,12 +16,12 @@ const {error,isLoading,sliders} = useSelector(state => state.homeApi)
      {isLoading ? <Loader /> : error ? <div>{error}</div> : sliders &&  sliders?.map(slider => <section key={slider.id}
         className={` relative w-full min-h-[100vh]  bg-cover bg-center bg-no-repeat flex flex-col`}
       >
-        <Image src={slider.image} alt={slider.title} layout='fill' objectFit='cover' loading="lazy" />
+        <Image src={slider.image} alt={slider.title} layout='fill' objectFit='cover' loading="lazy" className="deferred-image" />
          <div className='absolute inset-0 bg-black opacity-[.1]'></div>
         <NavLayout />
         <div className="container relative z-10 flex-grow flex justify-center items-center m-auto">
           <div className="header text-center  flex flex-col gap-6 max-md:gap-2 items-center">
-            <h1 className='text-[72px] max-md:text-[2rem] leading-[89.64px] max-md:leading-[2.5rem] font-[900] italic text-[rgba(248,248,252,1)] text-wrap xl:w-[870px] h-[270px] max-md:h-fit'>
+            <h1 className='text-[72px]  max-md:text-[2rem] leading-[89.64px] max-md:leading-[2.5rem] font-[900] italic text-[rgba(248,248,252,1)] text-wrap xl:w-[870px] h-[270px] max-md:h-fit'>
             {slider.title}
             </h1>
             <div className="buttons flex justify-center items-center gap-[10px] max-sm:flex-col max-sm:py-4">
