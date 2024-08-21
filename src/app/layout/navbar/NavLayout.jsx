@@ -3,9 +3,7 @@ import Navbar from './Navbar'
 export default function NavLayout() {
   return (
     <>
-
-    <Navbar />
-      
+    <Navbar />  
     </>
   )
 }
