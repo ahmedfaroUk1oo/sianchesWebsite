@@ -1,5 +1,5 @@
 "use client"
-import NavLayout from '@/app/layout/Navbar/NavLayout'
+import NavLayout from '@/app/layout/navbar/NavLayout'
 import Link from 'next/link'
 import React from 'react'
 import { MdArrowOutward } from 'react-icons/md'
