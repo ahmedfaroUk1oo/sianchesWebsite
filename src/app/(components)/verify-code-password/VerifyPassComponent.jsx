@@ -8,7 +8,7 @@ import toast from 'react-hot-toast';
 import { GoArrowUpRight } from 'react-icons/go';
 import Image from 'next/image';
 
-export default function VerifyComponent() {
+export default function VerifyPassComponent() {
     const [otp, setOtp] = useState(Array(4).fill(''));
   const inputRefs = useRef([]);
   const[email,setEmail] = useState('');
@@ -19,7 +19,7 @@ const resendOtp = async () => {
 try {
     const response = await axios.post('https://sunchase.backend.aait-d.com/api/resend-otp',{
         email: localStorage.getItem('emailAddress'),
-        type :'verify_new'
+        type :'verify_password'
     });
     if(response.status === 200){
         toast.success('Code has been sent to your mail')
@@ -63,7 +63,7 @@ if(localStorage.getItem('emailAddress')){
     setEmail(localStorage.getItem('emailAddress'))
     inputRefs.current[0].focus();
 }else {
-    router.push('/sign-up')
+    router.push('/forget-password')
 }
 }, []);
 
@@ -81,11 +81,11 @@ const handleVerify = async() => {
     }
     if(otpValue.length === 4){
        try {
-        const response =await axios.post('https://sunchase.backend.aait-d.com/api/verify',values);  
+        const response =await axios.post('https://sunchase.backend.aait-d.com/api/password/verify',values);  
         if(response.status === 200){
-            toast.success('Account has been verified successfully');
+            toast.success('code has been verified successfully');
             setTimeout(() => {
-                router.push('/sign-in')
+                router.push('/change-password')
             }, 1000);
         }
 

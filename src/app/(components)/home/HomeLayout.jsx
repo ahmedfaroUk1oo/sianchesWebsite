@@ -13,6 +13,7 @@ const RecentlyAdded = lazy(() => import('./RecentlyAdded'));
 const Ambassador = lazy(() => import('./Ambassador'));
 const OurPartners = lazy(() => import('./OurPartners'));
 const ContactUs = lazy(() => import('./ContactUs'));
+const FooterLayout = lazy(()=> import('@/app/layout/footer/FooterLayout'));
 
 export default function HomeLayout() {
   const dispatch = useDispatch();
@@ -44,6 +45,7 @@ export default function HomeLayout() {
       <Ambassador />
       <OurPartners />
       <ContactUs />
+      <FooterLayout />
     </Suspense>
   );
 }

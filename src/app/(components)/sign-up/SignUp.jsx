@@ -1,13 +1,15 @@
+"use client"
 import Image from 'next/image'
 import React from 'react'
 import SignUpForm from './SignUpForm'
 import toast, { Toaster } from 'react-hot-toast';
-export default function SignUpComponent() {
+import withoutAuth from '../Auth/withoutAuth';
+ function SignUpComponent() {
   return (
     <>
      <Toaster />
        <section className='grid grid-cols-2 max-md:grid-cols-1 min-h-screen gap-[40px] '>
-        <div className="img">
+        <div className="img max-md:hidden">
             <Image src={'/assets/signHeader.webp'} alt="Sign In" width={756} height={982} priority className='w-full h-full inline-block min-h-screen   object-cover object-center' />
         </div>
         <div className="container mt-[80px] m-auto w-full ">
@@ -20,3 +22,5 @@ export default function SignUpComponent() {
     </>
   )
 }
+
+export default withoutAuth(SignUpComponent)

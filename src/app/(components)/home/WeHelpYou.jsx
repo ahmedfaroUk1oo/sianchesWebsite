@@ -10,7 +10,6 @@ export default function WeHelpYou() {
 
 
 const {error,isLoading,we_help_you} = useSelector(state => state.homeApi)
-console.log(we_help_you);
 
   return (
     <>

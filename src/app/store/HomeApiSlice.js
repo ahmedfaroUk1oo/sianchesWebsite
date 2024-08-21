@@ -31,7 +31,6 @@ const homeApiSlice = createSlice({
            
             })
             .addCase(homeApi.fulfilled, (state, action) => {
-             console.log(action.payload);
              
                 state.error = null
               

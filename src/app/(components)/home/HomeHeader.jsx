@@ -25,7 +25,7 @@ const {error,isLoading,sliders} = useSelector(state => state.homeApi)
             {slider.title}
             </h1>
             <div className="buttons flex justify-center items-center gap-[10px] max-sm:flex-col max-sm:py-4">
-            <Link href={'#'} className=" p-2    w-[236px] h-[56px]  text-[16px]  leading-[19.06px] font-normal text-[rgba(45,45,45,1)] bg-[rgba(248,248,247,1)]    flex justify-center items-center no-underline "  >Explore Properties <MdArrowOutward className='inline-block'/></Link>
+            <Link href={'#'} className=" p-2    w-[236px] h-[56px]  text-[16px] max-sm:w-full  leading-[19.06px] font-normal text-[rgba(45,45,45,1)] bg-[rgba(248,248,247,1)]    flex justify-center items-center no-underline "  >Explore Properties <MdArrowOutward className='inline-block'/></Link>
             </div>
           </div>
         </div>
